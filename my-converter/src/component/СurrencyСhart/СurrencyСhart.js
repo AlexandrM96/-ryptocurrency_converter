@@ -1,6 +1,8 @@
 import React from 'react';
 import './СurrencyСhart.css';
-import { ApiRequestCriptoCoins } from '../../api_request/api.reqest';
+import { ApiRequestCriptoCoinsHistory } from '../../api_request/api.reqest';
+import { ApiRequestCriptoCoin } from '../../api_request/api.reqest';
+import { ApiRequestUSD } from '../../api_request/api.reqest';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Line } from "react-chartjs-2";
@@ -8,9 +10,14 @@ import store from '../../redux/store';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-ApiRequestCriptoCoins();
+
 
 const СurrencyСhart = () => {
+  
+  // ApiRequestCriptoCoinsHistory('bitcoin');
+  // ApiRequestCriptoCoin('bitcoin');
+  // ApiRequestUSD();
+
   const [state, setState] = useState({ array: [], newArray: [] });
   store.subscribe(() => {
     const state = store.getState();
@@ -41,7 +48,7 @@ const СurrencyСhart = () => {
 
   const data = {
     labels: date(), //дни
-    
+
     datasets: [
       {
         label: "Цена за шт.",
@@ -49,7 +56,6 @@ const СurrencyСhart = () => {
         fill: false,
         backgroundColor: "red",
         borderColor: "#880404",
-        fontSize: '10px'
       },
     ],
   };
@@ -62,11 +68,11 @@ const СurrencyСhart = () => {
     maintainAspectRatio: false,
 
     tooltips: {
-      mode: "index",
+      mode: "",
       intersect: false,
       caretSize: 3,
       backgroundColor: "#44200c",
-      bodyFontColor: "#a68156",
+      bodyFontColor: "white",
       borderColor: "#877f72",
       borderWidth: 1,
       displayColors: false,
