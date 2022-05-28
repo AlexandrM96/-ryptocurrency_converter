@@ -9,7 +9,7 @@ class CriptoList extends Component {
     render() {
         return (
             <section className='criptolist'>
-                <div className='criptolist-container'>
+                <div className='criptolist__container'>
                     <article className='criptolist__article'>
                         <ButtonsCriptoCurrensy />
                     </article>
@@ -21,7 +21,6 @@ class CriptoList extends Component {
                     <Converter />
                 </div>
             </section>
-
         )
     }
 }

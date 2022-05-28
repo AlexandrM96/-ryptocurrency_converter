@@ -35,20 +35,13 @@ class Converter extends Component {
             this.setState(this.state.flag === false ? { flag: false } : { flag: true });
     }
 
-    // stateData = () => {
-    //     this.setState(prevValue => ({
-    //         data: this.props.coin
-    //     }), () => {
-
-    //     })
-    // }
     render() {
         const coin = this.props.coin.symbol;
         const current = this.props.coin.market_data.current_price.usd;
         const res = this.props.coin.symbol === 'btc' ?
             this.props.usd.market_data.current_price.btc
             :
-            this.props.usd.market_data.current_price.eth;
+            this.props.usd.market_data.current_price.eth
         return (
             <div className='converter'>
                 <div className='converter__container'>

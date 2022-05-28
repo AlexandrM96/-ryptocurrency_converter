@@ -1,8 +1,50 @@
 const initialState = {
     arr: [],
-    coinValue: '',
-    coin: [],
-    usd: []
+    coinValue: 'bitcoin',
+    coin: {
+        symbol: 'btc',
+        market_data: {
+            current_price: {
+                usd: 1
+            }
+        }
+    },
+    usd: {
+        market_data: {
+            current_price: {
+                btk: 1,
+                eth: 1
+            }
+        }
+    },
+    currencyPortfel: [
+        {
+            name: 'Dollar',
+            symbol: 'usd',
+            amount: 1000,
+            quantity: 1000,
+            img: 'img/premium-icon-dollar-1549885.png'
+        }
+    ],
+    cryptoCurrencyPortfel: [
+        {
+            name: 'Ethereum',
+            symbol: 'btc',
+            amount: 500,
+            quantity: 3,
+            img: 'img/bitcoin_logo_icon_170476.svg'
+        },
+        {
+            name: 'Bitcoin',
+            symbol: 'eth',
+            amount: 1800,
+            quantity: 1,
+            img: 'img/free-icon-ethereum-coins-2814943.png'
+        }
+    ]
+
+
+
 }
 
 function reducer(state = initialState, action) {
@@ -20,7 +62,6 @@ function reducer(state = initialState, action) {
         case 'COIN_VALUE':
             state.coinValue = '';
             const valueOne = action.payload.value;
-            console.log(valueOne);
             state.coinValue = valueOne;
             return { ...state, ...state.coinValue }
         case 'ADD_API_COIN':

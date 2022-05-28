@@ -1,0 +1,24 @@
+.currency-item__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.currency-item__container-item {
+    display: flex;
+    align-items: center;
+}
+
+.currency-item__container-image {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.currency-item__container-image img {
+    width: 100%;
+}
+
+.currency-item__container-text {
+    font-size: 18px;
+
+}

@@ -1,41 +1,23 @@
 import React from 'react';
 import './СurrencyСhart.css';
-import { ApiRequestCriptoCoinsHistory } from '../../api_request/api.reqest';
-import { ApiRequestCriptoCoin } from '../../api_request/api.reqest';
-import { ApiRequestUSD } from '../../api_request/api.reqest';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Line } from "react-chartjs-2";
-import store from '../../redux/store';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-
-
 const СurrencyСhart = () => {
-  
-  // ApiRequestCriptoCoinsHistory('bitcoin');
-  // ApiRequestCriptoCoin('bitcoin');
-  // ApiRequestUSD();
 
-  const [state, setState] = useState({ array: [], newArray: [] });
-  store.subscribe(() => {
-    const state = store.getState();
-    setState({ array: state.arr });
-  });
-  // const arr = useSelector(state => state.arr);
-  //  console.log(state.array)
-  // setState({ array: state.arr });
+  const arrayLine = useSelector(state => state.arr);
 
-  const sum = () => {
+  const newArrayLine = () => {
     const newArr = [];
-    for (let i = 0; i < state.array.length; i++) {
-      newArr.push(state.array[i].slice(-1)[0][1])
+    for (let i = 0; i < arrayLine.length; i++) {
+      newArr.push(arrayLine[i].slice(-1)[0][1]);
     }
     return newArr
   }
 
-  const date = () => {
+  const dateLine = () => {
     const dateArr = [];
     const myDate = new Date();
     dateArr.push(myDate.toLocaleDateString());
@@ -47,12 +29,11 @@ const СurrencyСhart = () => {
   }
 
   const data = {
-    labels: date(), //дни
-
+    labels: dateLine(), //дни
     datasets: [
       {
         label: "Цена за шт.",
-        data: sum(), //цена
+        data: newArrayLine(), //цена
         fill: false,
         backgroundColor: "red",
         borderColor: "#880404",

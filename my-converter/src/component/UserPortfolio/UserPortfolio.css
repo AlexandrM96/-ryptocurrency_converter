@@ -1,0 +1,36 @@
+.user-portfolio {
+  color: rgba(255, 255, 255, 0.767);
+}
+
+.user-portfolio__score-info-title {
+  margin-bottom: 5px;
+}
+
+.user-portfolio__info-score {
+  color: green;
+  font-size: 25px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+.user-portfolio__info-button {
+  cursor: pointer;
+  padding: 5px 40px;
+  margin-right: 10px;
+  font-size: 20px;
+  background: #2b2b2f;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.user-portfolio__info-button:last-child {
+  margin-right: 0;
+}
+
+.user-portfolio__info-button:hover {
+  transform: scale(1.1);
+  transition: 0.4s;
+  background: #3d3d4b;
+}

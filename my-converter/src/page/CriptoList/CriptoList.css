@@ -1,7 +1,4 @@
-/* .criptolist {
-    display: flex;
-} */
 
-.criptolist-container {
+.criptolist__container {
     display: flex; 
 }

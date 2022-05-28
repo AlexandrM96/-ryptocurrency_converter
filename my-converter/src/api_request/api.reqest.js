@@ -1,8 +1,6 @@
 import store from "../redux/store";
-
-//общий запрос
+// bitcoin,ethereum
 export function ApiRequestCriptoCoinsHistory(value) {
-    // bitcoin,ethereum
     let url = `https://api.coingecko.com/api/v3/coins/${value}/contract/%20/market_chart/?vs_currency=usd&days=14`;
     value === '' ?
         url = `https://api.coingecko.com/api/v3/coins/bitcoin/contract/%20/market_chart/?vs_currency=usd&days=14` :
@@ -24,7 +22,6 @@ export function ApiRequestCriptoCoinsHistory(value) {
 }
 
 export function ApiRequestCriptoCoin(value) {
-    // bitcoin,ethereum
     let url = `https://api.coingecko.com/api/v3/coins/${value}`;
     value === '' ?
         url = `https://api.coingecko.com/api/v3/coins/ethereum` :
@@ -46,7 +43,6 @@ export function ApiRequestCriptoCoin(value) {
 }
 
 export function ApiRequestUSD() {
-    // bitcoin,ethereum
     let url = `https://api.coingecko.com/api/v3/coins/usd`;
     fetch(url)
         .then((response) => response.json())
