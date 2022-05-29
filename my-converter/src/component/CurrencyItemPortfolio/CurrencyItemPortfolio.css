@@ -1,0 +1,43 @@
+.currency-item-portfolio__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.currency-item-portfolio__container-item {
+    display: flex;
+    align-items: center;
+}
+
+.currency-item-portfolio__container-image {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.currency-item-portfolio__container-image img {
+    width: 100%;
+}
+
+.currency-item-portfolio__container-text {
+    font-size: 18px;
+
+}
+
+.currency-item-portfolio__container-button {
+    background: #3d3d4b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 18px;
+    padding: 5px 10px;
+    transition: 0.4s;
+    margin-right: 8px;
+    margin-bottom: 2px;
+  }
+  
+  .currency-item-portfolio__container-button:hover {
+    background: #5a5a7b;
+    transform: scale(1.1);
+    transition: 0.4s;
+  }

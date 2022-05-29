@@ -1,5 +1,5 @@
 import store from "../redux/store";
-// bitcoin,ethereum
+
 export function ApiRequestCriptoCoinsHistory(value) {
     let url = `https://api.coingecko.com/api/v3/coins/${value}/contract/%20/market_chart/?vs_currency=usd&days=14`;
     value === '' ?
@@ -51,6 +51,42 @@ export function ApiRequestUSD() {
                 type: 'ADD_API_USD',
                 payload: {
                     Usd: data
+                }
+            })
+        }
+        )
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+export function ApiRequestBtcPortfolio() {
+    let url = `https://api.coingecko.com/api/v3/coins/bitcoin`;
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            store.dispatch({
+                type: 'ADD_PORTFOLIO_COURS_BTC',
+                payload: {
+                    BTC: data
+                }
+            })
+        }
+        )
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+export function ApiRequestEthPortfolio() {
+    let url = `https://api.coingecko.com/api/v3/coins/ethereum`;
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            store.dispatch({
+                type: 'ADD_PORTFOLIO_COURS_ETH',
+                payload: {
+                    ETH: data
                 }
             })
         }

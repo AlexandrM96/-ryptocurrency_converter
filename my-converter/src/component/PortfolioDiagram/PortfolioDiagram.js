@@ -7,11 +7,10 @@ const PortfolioDiagram = () => {
     const arrayDiagramOne = useSelector(state => state.currencyPortfel);
     const arrayDiagramTwo = useSelector(state => state.cryptoCurrencyPortfel);
 
-console.log(arrayDiagramOne,arrayDiagramTwo);
     const data = [
-        { name: "Bitcoin", users: arrayDiagramTwo[0].amount },
-        { name: "Ethereum", users: arrayDiagramTwo[1].amount },
-        { name: "Dollars", users: arrayDiagramOne[0].amount },
+        { name: "Ethereum", users: arrayDiagramTwo[0].quantity },
+        { name: "Bitcoin", users: arrayDiagramTwo[1].quantity },
+        { name: "Dollars", users: arrayDiagramOne[0].quantity },
     ];
 
     return (

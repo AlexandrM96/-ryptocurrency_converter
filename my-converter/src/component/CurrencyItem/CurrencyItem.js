@@ -9,7 +9,7 @@ class CurrencyItem extends Component {
             <div className='currency-item__container'>
                 <div className='currency-item__container-item'>
                     <div className='currency-item__container-image'>
-                        <img src={img} alt='Bitcoin' />
+                        <img src={img} alt='Cryptocurrency' />
                     </div>
                     <div className='currency-item__container-text'>
                         {name}

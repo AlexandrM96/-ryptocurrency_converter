@@ -2,8 +2,15 @@
 import React, { Component } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import { ApiRequestBtcPortfolio } from '../../api_request/api.reqest';
+import { ApiRequestEthPortfolio } from '../../api_request/api.reqest';
 
 class Header extends Component {
+
+    portfolio = () => {
+        ApiRequestBtcPortfolio();
+        ApiRequestEthPortfolio();
+    }
 
     render() {
         return (
@@ -14,7 +21,7 @@ class Header extends Component {
                         <button className='header__navigation-button'>
                             <Link className='header__navigation-button-link' to='/'>Home</Link>
                         </button>
-                        <button className='header__navigation-button'>
+                        <button onClick={this.portfolio} className='header__navigation-button'>
                             <Link className='header__navigation-button-link' to='/portfel'>Portfolio</Link>
                         </button>
                     </nav>
