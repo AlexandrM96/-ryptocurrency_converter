@@ -63,7 +63,8 @@ function reducer(state = initialState, action) {
                 state.arr[state.arr.length - 1][i] = c;
                 return state.arr;
             }, []);
-            return { ...state, ...state.arr }
+            const array = [...state.arr];
+            return { ...state, arr: array }
         case 'COIN_VALUE':
             state.coinValue = '';
             const valueOne = action.payload.value;
@@ -73,12 +74,14 @@ function reducer(state = initialState, action) {
             state.coin = [];
             const coinOne = action.payload.Coin;
             state.coin = coinOne;
-            return { ...state, ...state.coin }
+            const coin = [...state.coin]
+            return { ...state, coin: coin }
         case 'ADD_API_USD':
             state.usd = [];
             const usdOne = action.payload.Usd;
             state.usd = usdOne;
-            return { ...state, ...state.usd }
+            const newUsd = { ...state.usd }
+            return { ...state, usd: newUsd }
         case 'ADD_PORTFOLIO_COURS_BTC':
             state.portfolioApiBtc = '';
             const portfolioBtc = action.payload.BTC;
@@ -119,7 +122,8 @@ function reducer(state = initialState, action) {
                 state.itemEth = 0;
                 state.itemBtc = 0;
             }
-            return { ...state, ...state.cryptoCurrencyPortfel, ...state.itemBtc, ...state.itemEth }
+            const cryptoCurrencyPortfel = [...state.cryptoCurrencyPortfel];
+            return { ...state, cryptoCurrencyPortfel: cryptoCurrencyPortfel, ...state.itemBtc, ...state.itemEth }
         default:
             return state;
     }
